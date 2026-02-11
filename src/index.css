@@ -68,4 +68,17 @@
   .parallax-fast {
     transform: translateY(calc(var(--scroll) * -0.8px));
   }
+
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+      opacity 0.8s ease-out,
+      transform 0.8s ease-out;
+  }
+
+  .scroll-animate.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

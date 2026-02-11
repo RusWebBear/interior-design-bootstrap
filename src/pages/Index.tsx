@@ -17,8 +17,20 @@ const Index = () => {
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
+      
+      const elements = document.querySelectorAll('.scroll-animate');
+      elements.forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight * 0.8;
+        
+        if (isVisible) {
+          element.classList.add('animate-in');
+        }
+      });
     };
+    
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -198,7 +210,7 @@ const Index = () => {
       <section id="about" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in">
+            <div className="scroll-animate">
               <h2 className="text-4xl md:text-5xl font-bold mb-6">О студии</h2>
               <p className="text-lg text-muted-foreground mb-6">
                 LUXE — это команда профессионалов с 15-летним опытом создания уникальных интерьеров. 
@@ -223,7 +235,7 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="relative h-[500px] rounded-2xl overflow-hidden animate-scale-in">
+            <div className="relative h-[500px] rounded-2xl overflow-hidden scroll-animate">
               <img 
                 src="https://cdn.poehali.dev/projects/eed55f17-efb5-4a74-8d9e-55a94c13ec8e/files/b294a8b9-6f80-4f06-91c1-717cd8e8f640.jpg"
                 alt="Interior Design"
@@ -261,8 +273,8 @@ const Index = () => {
             {filteredProjects.map((project, index) => (
               <Card 
                 key={project.id} 
-                className="group cursor-pointer overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-500 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="group cursor-pointer overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-500 scroll-animate"
+                style={{ transitionDelay: `${index * 0.1}s` }}
                 onClick={() => setSelectedProject(project)}
               >
                 <div className="relative h-80 overflow-hidden">
@@ -287,7 +299,7 @@ const Index = () => {
 
       <section id="services" className="py-24 bg-gradient-to-br from-primary via-purple-900 to-secondary text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Наши услуги</h2>
             <p className="text-lg text-white/80 max-w-2xl mx-auto">
               Комплексный подход к созданию интерьера вашей мечты
@@ -298,8 +310,8 @@ const Index = () => {
             {services.map((service, index) => (
               <Card 
                 key={service.title}
-                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300 p-6 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20 transition-all duration-300 p-6 scroll-animate"
+                style={{ transitionDelay: `${index * 0.1}s` }}
               >
                 <div className="mb-4">
                   <Icon name={service.icon} size={40} className="text-secondary" />
@@ -314,7 +326,7 @@ const Index = () => {
 
       <section id="process" className="py-24 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Процесс работы</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Прозрачный и понятный путь к интерьеру вашей мечты
@@ -330,8 +342,8 @@ const Index = () => {
             ].map((item, index) => (
               <div 
                 key={item.step} 
-                className="relative animate-slide-in-right"
-                style={{ animationDelay: `${index * 0.15}s` }}
+                className="relative scroll-animate"
+                style={{ transitionDelay: `${index * 0.15}s` }}
               >
                 <div className="text-6xl font-bold text-secondary/20 mb-4">{item.step}</div>
                 <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
@@ -344,7 +356,7 @@ const Index = () => {
 
       <section id="testimonials" className="py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
+          <div className="text-center mb-16 scroll-animate">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Отзывы клиентов</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Что говорят о нас те, кто уже реализовал свои мечты
@@ -355,8 +367,8 @@ const Index = () => {
             {testimonials.map((testimonial, index) => (
               <Card 
                 key={testimonial.name}
-                className="p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 animate-scale-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+                className="p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 scroll-animate"
+                style={{ transitionDelay: `${index * 0.1}s` }}
               >
                 <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -373,14 +385,14 @@ const Index = () => {
 
       <section id="contact" className="py-24 bg-gradient-to-br from-primary via-purple-900 to-secondary text-white">
         <div className="container mx-auto px-4 max-w-4xl">
-          <div className="text-center mb-12 animate-fade-in">
+          <div className="text-center mb-12 scroll-animate">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
             <p className="text-lg text-white/80">
               Готовы начать ваш проект? Оставьте заявку, и мы свяжемся с вами в течение 24 часов
             </p>
           </div>
 
-          <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 animate-scale-in">
+          <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 scroll-animate">
             <form className="space-y-6" onSubmit={async (e) => {
               e.preventDefault();
               setIsSubmitting(true);
@@ -475,17 +487,17 @@ const Index = () => {
           </Card>
 
           <div className="grid md:grid-cols-3 gap-8 mt-16 text-center">
-            <div className="animate-fade-in">
+            <div className="scroll-animate">
               <Icon name="Phone" size={32} className="mx-auto mb-3 text-secondary" />
               <div className="font-semibold mb-1">Телефон</div>
               <div className="text-white/80">+7 (495) 123-45-67</div>
             </div>
-            <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <div className="scroll-animate" style={{ transitionDelay: '0.1s' }}>
               <Icon name="Mail" size={32} className="mx-auto mb-3 text-secondary" />
               <div className="font-semibold mb-1">Email</div>
               <div className="text-white/80">hello@luxe-design.ru</div>
             </div>
-            <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="scroll-animate" style={{ transitionDelay: '0.2s' }}>
               <Icon name="MapPin" size={32} className="mx-auto mb-3 text-secondary" />
               <div className="font-semibold mb-1">Адрес</div>
               <div className="text-white/80">Москва, Тверская 1</div>
