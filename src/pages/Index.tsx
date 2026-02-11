@@ -154,7 +154,7 @@ const Index = () => {
             <a href="#services" className="text-sm hover:text-secondary transition-colors">Услуги</a>
             <a href="#process" className="text-sm hover:text-secondary transition-colors">Процесс</a>
             <a href="#testimonials" className="text-sm hover:text-secondary transition-colors">Отзывы</a>
-            <Button className="relative overflow-hidden bg-gradient-to-r from-secondary via-purple-500 to-secondary bg-[length:200%_100%] hover:bg-[position:100%_0] active:scale-95 transition-all duration-500 text-primary font-semibold">
+            <Button className="relative overflow-hidden bg-gradient-to-r from-secondary via-purple-300 to-secondary bg-[length:200%_100%] hover:bg-[position:100%_0] active:scale-95 transition-all duration-500 text-primary font-semibold">
               Связаться
             </Button>
           </div>
@@ -250,7 +250,7 @@ const Index = () => {
                 key={filter}
                 variant={activeFilter === filter ? 'default' : 'outline'}
                 onClick={() => setActiveFilter(filter)}
-                className={activeFilter === filter ? 'bg-secondary hover:bg-secondary/90 text-primary' : ''}
+                className={activeFilter === filter ? 'relative overflow-hidden bg-gradient-to-r from-secondary via-purple-300 to-secondary bg-[length:200%_100%] hover:bg-[position:100%_0] active:scale-95 transition-all duration-500 text-primary font-semibold' : ''}
               >
                 {filter}
               </Button>
