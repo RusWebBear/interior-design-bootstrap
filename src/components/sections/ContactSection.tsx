@@ -56,8 +56,15 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-primary via-purple-900 to-secondary text-white">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section id="contact" className="relative py-24 text-white overflow-hidden">
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: 'url(https://cdn.poehali.dev/projects/eed55f17-efb5-4a74-8d9e-55a94c13ec8e/bucket/765c629e-4a23-4b64-bec1-3f6ede5de41f.jpg)'
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/90 via-purple-900/90 to-secondary/90" />
+      <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <div className="text-center mb-12 scroll-animate">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Свяжитесь с нами</h2>
           <p className="text-lg text-white/80">
