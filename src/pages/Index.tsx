@@ -186,13 +186,31 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            <div className="relative h-[500px] rounded-2xl overflow-hidden scroll-animate">
-              <img 
-                src="https://cdn.poehali.dev/projects/eed55f17-efb5-4a74-8d9e-55a94c13ec8e/files/b294a8b9-6f80-4f06-91c1-717cd8e8f640.jpg"
-                alt="Interior Design"
-                className="w-full h-full object-cover parallax-image transition-transform duration-100"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+            <div className="relative grid grid-cols-2 gap-4 scroll-animate">
+              <div className="relative h-[500px] rounded-2xl overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/eed55f17-efb5-4a74-8d9e-55a94c13ec8e/bucket/c0f9447f-aee2-4aa9-a92c-e063ffa3fe1d.JPG"
+                  alt="Наталья - главный дизайнер"
+                  className="w-full h-full object-cover parallax-image transition-transform duration-100 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-xl font-bold mb-1">Наталья</h3>
+                  <p className="text-sm text-white/80">Главный дизайнер</p>
+                </div>
+              </div>
+              <div className="relative h-[500px] rounded-2xl overflow-hidden">
+                <img 
+                  src="https://cdn.poehali.dev/projects/eed55f17-efb5-4a74-8d9e-55a94c13ec8e/bucket/7d92beb7-4b12-43c9-aabd-72c6bfd4d186.jpg"
+                  alt="Елена - ведущий дизайнер"
+                  className="w-full h-full object-cover parallax-image transition-transform duration-100 hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-xl font-bold mb-1">Елена</h3>
+                  <p className="text-sm text-white/80">Ведущий дизайнер</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
